@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtensionHost/build/cmake_install.cmake"
+		"C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionHost/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

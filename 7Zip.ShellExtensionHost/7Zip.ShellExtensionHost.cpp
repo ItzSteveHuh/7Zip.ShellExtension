@@ -250,12 +250,6 @@ struct ExplorerCommandBase : IExplorerCommand {
         case CommandID::Test:
         case CommandID::ExtractFiles:
         case CommandID::ExtractHere:
-            for (auto& p : paths) {
-            std::filesystem::path parent = std::filesystem::path(p).parent_path();
-            std::wstring args = L"x -y -o\"" + parent.wstring() + L"\\\" \"" + p + L"\"";
-            ShellRun(sevenZG, args);
-        }
-            break;        
         case CommandID::ExtractTo:
             if (allArchives) *pState = ECS_ENABLED;
             break;
@@ -293,19 +287,24 @@ struct ExplorerCommandBase : IExplorerCommand {
             ShellRun(sevenZG, L"x " + quoteJoin(paths));
             break;
 
-        case CommandID::ExtractHere:
+        case CommandID::ExtractHere: {
             if (paths.size() == 1) {
-                // Classic single-archive behavior
-                ShellRun(sevenZG, L"x -y \"" + paths[0] + L"\"");
-            } else {
-                // SMART multi-archive behavior: each into its own folder
-                for (auto& p : paths) {
-                    std::wstring folder = BaseName(p);
-                    std::wstring args = L"x -y -o\"" + folder + L"\\\" \"" + p + L"\"";
-                    ShellRun(sevenZG, args);
+        // Classic single-archive behavior: extract into parent folder of the archive
+            std::filesystem::path parent = std::filesystem::path(paths[0]).parent_path();
+            std::wstring args = L"x -y -o\"" + parent.wstring() + L"\\\" \"" + paths[0] + L"\"";
+            ShellRun(sevenZG, args);
+        } else {
+        // SMART multi-archive behavior: each archive into its own folder
+            for (auto& p : paths) {
+            std::filesystem::path parent = std::filesystem::path(p).parent_path();
+            std::wstring folder = BaseName(p);
+            std::wstring args = L"x -y -o\"" + (parent / folder).wstring() + L"\\\" \"" + p + L"\"";
+            ShellRun(sevenZG, args);
+                                  }
                 }
-            }
             break;
+        }
+
 
         case CommandID::ExtractTo:
             // Classic: always into <ArchiveName>\ (multi-select creates per-archive dirs)
@@ -325,7 +324,8 @@ struct ExplorerCommandBase : IExplorerCommand {
             std::wstring out = (parent / DefaultArchiveName(paths, L".7z")).wstring();
             ShellRun(sevenZG, L"a \"" + out + L"\" " + quoteJoin(paths));
             break;
-        }  
+        }   
+
 
         case CommandID::AddToZip: {
             std::wstring out = DefaultArchiveName(paths, L".zip");

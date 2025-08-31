@@ -1,3 +1,3 @@
-C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtensionHost/build/CMakeFiles/7Zip.ShellExtensionHost.dir
-C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtensionHost/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtensionHost/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionHost/build/CMakeFiles/7Zip.ShellExtensionHost.dir
+C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionHost/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionHost/build/CMakeFiles/ZERO_CHECK.dir
