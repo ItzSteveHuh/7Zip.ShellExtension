@@ -1,0 +1,3 @@
+C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionStub/build/CMakeFiles/7Zip.ShellExtensionStub.dir
+C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionStub/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionStub/build/CMakeFiles/ZERO_CHECK.dir

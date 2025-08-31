@@ -331,9 +331,13 @@ struct ExplorerCommandBase : IExplorerCommand {
             }
             break;
 
-        case CommandID::AddToArchive:
-            ShellRun(sevenZG, L"a " + quoteJoin(paths));
+        case CommandID::AddToArchive: {
+            std::filesystem::path parent = std::filesystem::path(paths[0]).parent_path();
+            std::wstring out = (parent / DefaultArchiveName(paths, L".7z")).wstring();
+            std::wstring args = L"a -ad \"" + out + L"\" " + quoteJoin(paths);
+            ShellRun(sevenZG, args); // use 7zG.exe with a -ad
             break;
+        }       
 
         case CommandID::AddTo7z: {
             std::filesystem::path parent = std::filesystem::path(paths[0]).parent_path();

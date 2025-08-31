@@ -384,8 +384,6 @@ EXPORTS
 	?stem@path@filesystem@std@@QEBA?AV123@XZ
 	?what@exception@std@@UEBAPEBDXZ
 	?wstring@path@filesystem@std@@QEBA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@3@XZ
-	DllCanUnloadNow
-	DllGetClassObject
 	DllMain
 	IsEqualGUID
 	wmemcmp

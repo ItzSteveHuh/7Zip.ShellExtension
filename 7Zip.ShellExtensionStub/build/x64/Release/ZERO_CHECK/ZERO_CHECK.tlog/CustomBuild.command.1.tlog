@@ -1,0 +1,10 @@
+^C:\USERS\COMEPSO\DOCUMENTS\GITHUB\7ZIP.SHELLEXTENSION\7ZIP.SHELLEXTENSIONSTUB\BUILD\CMAKEFILES\440DF350CB64576D836D2A303EDE6260\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionStub -BC:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionStub/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/7Zip.ShellExtensionStub/build/SevenZipHost.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\comepso\Documents\GitHub\7Zip.ShellExtension\7Zip.ShellExtensionStub\7Zip.ShellExtensionStub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\comepso\Documents\GitHub\7Zip.ShellExtension\7Zip.ShellExtensionStub\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4876E0FB-A5AD-325D-A0AC-71902C9EB7A0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,6 +1,0 @@
-cmake_minimum_required(VERSION 3.16)
-project(SevenZipHost LANGUAGES CXX)
-add_executable(7Zip.ShellExtensionHost WIN32 7Zip.ShellExtensionHost.cpp)
-target_compile_features(7Zip.ShellExtensionHost PRIVATE cxx_std_17)
-target_link_libraries(7Zip.ShellExtensionHost PRIVATE Ole32 Shell32 Shlwapi)
-set_target_properties(7Zip.ShellExtensionHost PROPERTIES OUTPUT_NAME "7Zip.ShellExtensionHost")
