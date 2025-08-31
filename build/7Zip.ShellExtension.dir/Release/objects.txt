@@ -1,1 +1,1 @@
-C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/build/7Zip.ShellExtension.dir/Release/7Zip.ShellExtension.obj
+C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/build/7Zip.ShellExtension.dir/Release/7Zip.ShellExtension.obj

@@ -1,6 +1,6 @@
-^C:\USERS\COMEPSO\DOCUMENTS\GITHUB\7ZIP-DARK7ZIP\CPP\7ZIP\UI\7ZIP.SHELLEXTENSION\BUILD\CMAKEFILES\3BBA4AE1BDF3834586E7B9EEB5E1E3A8\GENERATE.STAMP.RULE
+^C:\USERS\COMEPSO\DOCUMENTS\GITHUB\7ZIP.SHELLEXTENSION\BUILD\CMAKEFILES\88822662A2C3E1A7378F7A9CEF258F54\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension -BC:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/build/7ZipShellExtension.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/comepso/Documents/GitHub/7Zip.ShellExtension -BC:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/comepso/Documents/GitHub/7Zip.ShellExtension/build/7ZipShellExtension.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

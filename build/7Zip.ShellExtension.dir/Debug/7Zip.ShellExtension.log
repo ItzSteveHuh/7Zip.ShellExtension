@@ -1,7 +1,0 @@
-﻿  Building Custom Rule C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/CMakeLists.txt
-  7Zip.ShellExtension.cpp
-  Auto build dll exports
-C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/build/7Zip.ShellExtension.dir/Debug/exports.def : warning LNK4104: export of symbol 'DllCanUnloadNow' should be PRIVATE
-C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/build/7Zip.ShellExtension.dir/Debug/exports.def : warning LNK4104: export of symbol 'DllGetClassObject' should be PRIVATE
-     Creating library C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/build/Debug/7Zip.ShellExtension.lib and object C:/Users/comepso/Documents/GitHub/7zip-Dark7zip/CPP/7zip/UI/7Zip.ShellExtension/build/Debug/7Zip.ShellExtension.exp
-  7Zip.ShellExtension.vcxproj -> C:\Users\comepso\Documents\GitHub\7zip-Dark7zip\CPP\7zip\UI\7Zip.ShellExtension\build\Debug\7Zip.ShellExtension.dll

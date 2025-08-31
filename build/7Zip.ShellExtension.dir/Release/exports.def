@@ -75,10 +75,14 @@ EXPORTS
 	??$_Getvals@_W@?$time_get@DV?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@IEAAX_WAEBV_Locinfo@1@@Z
 	??$_Getvals@_W@?$time_get@_WV?$istreambuf_iterator@_WU?$char_traits@_W@std@@@std@@@std@@IEAAX_WAEBV_Locinfo@1@@Z
 	??$_Max_limit@_J@std@@YA_JXZ
+	??$_Pocca@V?$allocator@_W@std@@@std@@YAXAEAV?$allocator@_W@0@AEBV10@@Z
 	??$_Pocma@V?$allocator@_W@std@@@std@@YAXAEAV?$allocator@_W@0@0@Z
 	??$_Reallocate_for@V<lambda_3fa8b2c8193a0f3144fc4b1b8f243931>@@PEB_W@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAAEAV01@_KV<lambda_3fa8b2c8193a0f3144fc4b1b8f243931>@@PEB_W@Z
 	??$_Reallocate_grow_by@V<lambda_1dfe18491bcca09701d8ccb01d0b0af4>@@PEB_W_K@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAAEAV01@_KV<lambda_1dfe18491bcca09701d8ccb01d0b0af4>@@PEB_W_K@Z
+	??$_Reallocate_grow_by@V<lambda_25953b27f3c43b57ba59f021c7f225c5>@@_W@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAAEAV01@_KV<lambda_25953b27f3c43b57ba59f021c7f225c5>@@_W@Z
 	??$_Reallocate_grow_by@V<lambda_967c2ed818824c5314a20ec3af46b793>@@_KPEB_W_K@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAAEAV01@_KV<lambda_967c2ed818824c5314a20ec3af46b793>@@_KPEB_W2@Z
+	??$_Reallocate_grow_by@V<lambda_d27e2b2d334e86d578b418f53091db3c>@@$$V@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAAEAV01@_KV<lambda_d27e2b2d334e86d578b418f53091db3c>@@@Z
+	??$_Resize_and_overwrite@V<lambda_a24d838e24f7bf386b11b5deac1e9da7>@@@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAX_KV<lambda_a24d838e24f7bf386b11b5deac1e9da7>@@@Z
 	??$_Seek_wrapped@PEB_WAEAPEB_W@std@@YAXAEAPEB_W0@Z
 	??$_Seek_wrapped@PEB_WPEB_W@std@@YAXAEAPEB_W$$QEAPEB_W@Z
 	??$_Stringoid_from_Source@_WU?$char_traits@_W@std@@@filesystem@std@@YA?A_PAEBV?$basic_string_view@_WU?$char_traits@_W@std@@@1@@Z
@@ -94,6 +98,7 @@ EXPORTS
 	??$_Uninitialized_copy@PEAPEAUIExplorerCommand@@PEAPEAU1@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@YAPEAPEAUIExplorerCommand@@PEAPEAU1@00AEAV?$allocator@PEAUIExplorerCommand@@@0@@Z
 	??$_Uninitialized_move@PEAPEAUIExplorerCommand@@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@YAPEAPEAUIExplorerCommand@@QEAPEAU1@0PEAPEAU1@AEAV?$allocator@PEAUIExplorerCommand@@@0@@Z
 	??$_Uninitialized_move@PEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@std@@YAPEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@QEAV10@0PEAV10@AEAV?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@0@@Z
+	??$addressof@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@YAPEBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@AEBV10@@Z
 	??$addressof@PEAUIExplorerCommand@@@std@@YAPEAPEAUIExplorerCommand@@AEAPEAU1@@Z
 	??$addressof@PEA_W@std@@YAPEAPEA_WAEAPEA_W@Z
 	??$addressof@V?$_String_val@U?$_Simple_types@_W@std@@@std@@@std@@YAPEAV?$_String_val@U?$_Simple_types@_W@std@@@0@AEAV10@@Z
@@ -121,9 +126,11 @@ EXPORTS
 	??$min@_K@std@@YAAEB_KAEB_K0@Z
 	??$move@AEAPEAPEAUIExplorerCommand@@@std@@YA$$QEAPEAPEAUIExplorerCommand@@AEAPEAPEAU1@@Z
 	??$move@AEAPEAUIExplorerCommand@@@std@@YA$$QEAPEAUIExplorerCommand@@AEAPEAU1@@Z
+	??$move@AEAV<lambda_a24d838e24f7bf386b11b5deac1e9da7>@@@std@@YA$$QEAV<lambda_a24d838e24f7bf386b11b5deac1e9da7>@@AEAV1@@Z
 	??$move@AEAV?$allocator@_W@std@@@std@@YA$$QEAV?$allocator@_W@0@AEAV10@@Z
 	??$move@AEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@YA$$QEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@AEAV10@@Z
 	??$wcscpy_s@$0BAE@@@YAHAEAY0BAE@_WPEB_W@Z
+	??0<lambda_a24d838e24f7bf386b11b5deac1e9da7>@@QEAA@AEBQEB_WAEB_KAEB_N01@Z
 	??0?$_String_val@U?$_Simple_types@_W@std@@@std@@QEAA@XZ
 	??0?$_Uninitialized_backout_al@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@QEAA@PEAPEAUIExplorerCommand@@AEAV?$allocator@PEAUIExplorerCommand@@@1@@Z
 	??0?$_Uninitialized_backout_al@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@@std@@QEAA@PEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@1@AEAV?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@1@@Z
@@ -159,6 +166,10 @@ EXPORTS
 	??0bad_array_new_length@std@@QEAA@XZ
 	??0exception@std@@QEAA@AEBV01@@Z
 	??0exception@std@@QEAA@QEBDH@Z
+	??0path@filesystem@std@@QEAA@$$QEAV012@@Z
+	??0path@filesystem@std@@QEAA@$$QEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@2@@Z
+	??0path@filesystem@std@@QEAA@AEBV012@@Z
+	??0path@filesystem@std@@QEAA@XZ
 	??1?$_Compressed_pair@V?$allocator@_W@std@@V?$_String_val@U?$_Simple_types@_W@std@@@2@$00@std@@QEAA@XZ
 	??1?$_String_val@U?$_Simple_types@_W@std@@@std@@QEAA@XZ
 	??1?$_Tidy_guard@V?$vector@PEAUIExplorerCommand@@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@@std@@QEAA@XZ
@@ -180,19 +191,26 @@ EXPORTS
 	??1path@filesystem@std@@QEAA@XZ
 	??2@YAPEAX_KPEAX@Z
 	??4?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@$$QEAV01@@Z
+	??4?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@AEBV01@@Z
 	??4?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@QEB_W@Z
+	??4path@filesystem@std@@QEAAAEAV012@AEBV012@@Z
 	??9filesystem@std@@YA_NAEBVpath@01@0@Z
 	??A?$vector@PEAUIExplorerCommand@@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@QEAAAEAPEAUIExplorerCommand@@_K@Z
 	??A?$vector@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@std@@QEAAAEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@1@_K@Z
 	??A?$vector@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@std@@QEBAAEBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@1@_K@Z
 	??B?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBA?AV?$basic_string_view@_WU?$char_traits@_W@std@@@1@XZ
+	??Kfilesystem@std@@YA?AVpath@01@AEBV201@0@Z
 	??R<lambda_1dfe18491bcca09701d8ccb01d0b0af4>@@QEBA@QEA_WQEB_W_K12@Z
+	??R<lambda_25953b27f3c43b57ba59f021c7f225c5>@@QEBA@QEA_WQEB_W_K_W@Z
 	??R<lambda_3fa8b2c8193a0f3144fc4b1b8f243931>@@QEBA@QEA_W_KQEB_W@Z
 	??R<lambda_967c2ed818824c5314a20ec3af46b793>@@QEBA@QEA_WQEB_W_K212@Z
+	??R<lambda_a24d838e24f7bf386b11b5deac1e9da7>@@QEBA@PEA_W_K@Z
+	??R<lambda_d27e2b2d334e86d578b418f53091db3c>@@QEBA@QEA_WQEB_W_K@Z
 	??R<lambda_d4bb4d374dea09a911b8e82092ae283a>@@QEBA@AEBV?$vector@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@std@@@Z
 	??R_Is_slash_oper@filesystem@std@@SA_N_W@Z
 	??Y?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@AEBV01@@Z
 	??Y?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV01@QEB_W@Z
+	??_0path@filesystem@std@@QEAAAEAV012@AEBV012@@Z
 	??_7CRCMenuParent@@6B@
 	??_7ClassFactory@@6B@
 	??_7CommandEnum@@6B@
@@ -260,6 +278,7 @@ EXPORTS
 	?_Check_offset@?$_String_val@U?$_Simple_types@_W@std@@@std@@QEBAX_K@Z
 	?_Construct_empty@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAXXZ
 	?_Deallocate_for_capacity@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@CAXAEAV?$allocator@_W@2@QEA_W_K@Z
+	?_Eos@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAAX_K@Z
 	?_Find_extension@filesystem@std@@YAPEB_WQEB_W0@Z
 	?_Find_filename@filesystem@std@@YAPEB_WQEB_WPEB_W@Z
 	?_Find_relative_path@filesystem@std@@YAPEB_WQEB_W0@Z
@@ -329,6 +348,7 @@ EXPORTS
 	?compare@path@filesystem@std@@QEBAHAEBV123@@Z
 	?compare@path@filesystem@std@@QEBAHV?$basic_string_view@_WU?$char_traits@_W@std@@@3@@Z
 	?copy@?$_Char_traits@_WG@std@@SAPEA_WQEA_WQEB_W_K@Z
+	?data@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAPEA_WXZ
 	?data@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBAPEB_WXZ
 	?data@?$basic_string_view@_WU?$char_traits@_W@std@@@std@@QEBAPEB_WXZ
 	?deallocate@?$allocator@PEAUIExplorerCommand@@@std@@QEAAXQEAPEAUIExplorerCommand@@_K@Z
@@ -337,10 +357,12 @@ EXPORTS
 	?empty@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEBA_NXZ
 	?empty@?$vector@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@std@@QEBA_NXZ
 	?empty@path@filesystem@std@@QEBA_NXZ
+	?erase@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@_K@Z
 	?extension@path@filesystem@std@@QEBA?AV123@XZ
 	?filename@path@filesystem@std@@QEBA?AV123@XZ
 	?insert@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@_KQEB_W0@Z
 	?insert@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@_KQEB_W@Z
+	?is_absolute@path@filesystem@std@@QEBA_NXZ
 	?length@?$_WChar_traits@_W@std@@SA_KPEB_W@Z
 	?max_size@?$_Default_allocator_traits@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@SA_KAEBV?$allocator@PEAUIExplorerCommand@@@2@@Z
 	?max_size@?$_Default_allocator_traits@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@std@@@std@@SA_KAEBV?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@Z
@@ -350,6 +372,7 @@ EXPORTS
 	?max_size@?$vector@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@std@@QEBA_KXZ
 	?move@?$_Char_traits@_WG@std@@SAPEA_WQEA_WQEB_W_K@Z
 	?parent_path@path@filesystem@std@@QEBA?AV123@XZ
+	?push_back@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAX_W@Z
 	?push_back@?$vector@PEAUIExplorerCommand@@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@QEAAX$$QEAPEAUIExplorerCommand@@@Z
 	?push_back@?$vector@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@V?$allocator@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@@std@@QEAAX$$QEAV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@2@@Z
 	?select_on_container_copy_construction@?$_Default_allocator_traits@V?$allocator@PEAUIExplorerCommand@@@std@@@std@@SA?AV?$allocator@PEAUIExplorerCommand@@@2@AEBV32@@Z
