@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+  xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+  IgnorableNamespaces="uap uap5 com">
+
+  <!-- Basic identity of the package -->
+  <Identity Name="org.7zip.shell"
+            Publisher="CN=7ZipDev"
+            Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>7-Zip</DisplayName>
+    <PublisherDisplayName>7-Zip Dev</PublisherDisplayName>
+    <Logo>Assets\logo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop"
+                        MinVersion="10.0.19041.0"
+                        MaxVersionTested="10.0.26100.0"/>
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-us"/>
+  </Resources>
+
+  <Applications>
+    <!-- We register 7zFM.exe so the package has an entry point -->
+    <Application Id="7ZipFM"
+                 Executable="7zFM.exe"
+                 EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="7-Zip File Manager"
+                          Description="7-Zip File Manager"
+                          Square150x150Logo="Assets\logo.png"
+                          Square44x44Logo="Assets\logo.png"
+                          BackgroundColor="transparent"/>
+    </Application>
+  </Applications>
+
+  <Extensions>
+    <!-- COM server for ExplorerCommand -->
+    <com:ComServer>
+      <com:ExeServer DisplayName="7-Zip Modern Shell Extension"
+                     Path="7Zip.ShellExtension.dll"
+                     ThreadingModel="Apartment">
+        <com:Class Id="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac"
+                   DisplayName="7-Zip Explorer Command"/>
+      </com:ExeServer>
+    </com:ComServer>
+
+    <!-- Register the context menu verbs -->
+    <uap5:Extension Category="windows.fileExplorerContextMenus">
+      <uap5:FileExplorerContextMenus>
+
+        <uap5:ItemType Type="*">
+          <uap5:Verb Id="7ZipVerb"
+                     Label="7-Zip"
+                     ExplorerCommandHandler="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac"
+                     Icon="7-zip.dll,-1"/>
+        </uap5:ItemType>
+
+        <uap5:ItemType Type="Directory">
+          <uap5:Verb Id="7ZipVerbDir"
+                     Label="7-Zip"
+                     ExplorerCommandHandler="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac"
+                     Icon="7-zip.dll,-1"/>
+        </uap5:ItemType>
+
+        <uap5:ItemType Type="Drive">
+          <uap5:Verb Id="7ZipVerbDrive"
+                     Label="7-Zip"
+                     ExplorerCommandHandler="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac"
+                     Icon="7-zip.dll,-1"/>
+        </uap5:ItemType>
+
+      </uap5:FileExplorerContextMenus>
+    </uap5:Extension>
+  </Extensions>
+</Package>

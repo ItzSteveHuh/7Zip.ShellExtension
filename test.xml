@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type='text/xsl' href='C:\ProgramData\Windows App Certification Kit\results.xsl'?>
+<REPORT xml:lang="en-US" OVERALL_RESULT="WARNING" VERSION="10.0.26100.4188" LATEST_VERSION="TRUE" UPDATE_DOWNLOAD_URL="" TOOLSET_ARCHITECTURE="x64" SecureBoot="FALSE" APP_TYPE="Centennial" PUBLISHER_DISPLAY_NAME="CN=7ZipDev" APP_NAME="org.7zip.shell" APP_VERSION="1.0.0.2" OSVERSION="10.0.26100.0" OS="Microsoft Windows 11 Pro" PER_USER_APPLICATION="" PARTIAL_RUN="FALSE" LCID="1033" X64_ONLY="TRUE" VALIDATION_TYPE="UI" ReportGenerationTime="8/30/2025 5:52:19 PM" ID="7828318dd66415573eca9a22150d81e5">
+  <REQUIREMENTS>
+    <REQUIREMENT NUMBER="3" TITLE="Digitally signed file test" RATIONALE="An Authenticode digital signature allows users to be sure that the software is genuine. It also allows detection if a file has been tampered with e.g. infected by a virus.">
+      <TEST INDEX="2" NAME="Install signed driver and executable files" DESCRIPTION="Install signed driver and executable files." EXECUTIONTIME="00h:00m:00s.81ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="6" TITLE="User account control (UAC) test" RATIONALE="Most applications do not require administrator privileges at run time, and should be just fine running as a standard-user. Windows applications must have a manifest (embedded or external) to define its execution level that tells OS the privileges needed to run the application.">
+      <TEST INDEX="11" NAME="User account control run level" DESCRIPTION="Windows® applications must have a manifest (embedded or external) to define its execution level that tells OS the privileges needed to run the application." EXECUTIONTIME="00h:00m:00s.73ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="12" TITLE="Package compliance test" RATIONALE="The package does not satisfy Store compliance rules.">
+      <TEST INDEX="77" NAME="Application count" DESCRIPTION="One package should not define more than one app in the manifest." EXECUTIONTIME="00h:00m:00s.73ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="31" NAME="App manifest" DESCRIPTION="App manifest must include valid entries for all required fields." EXECUTIONTIME="00h:00m:00s.79ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="87" NAME="File association verbs" DESCRIPTION="Registry validation that no registered file association verbs are installed." EXECUTIONTIME="00h:00m:00s.76ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="86" NAME="Registry checks" DESCRIPTION="Registry validation that drivers are not installed and NT Services are not installed." EXECUTIONTIME="00h:00m:00s.73ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="91" NAME="Enterprise Features" DESCRIPTION="Check if any enterprise-only features are in the package." EXECUTIONTIME="00h:00m:00s.71ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="90" NAME="Resource Packages" DESCRIPTION="Check if any resource packages contain PE files." EXECUTIONTIME="00h:00m:00s.72ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="14" TITLE="Windows security features test" RATIONALE="Applications must opt-into Windows security features.">
+      <TEST INDEX="70" NAME="Banned file analyzer" DESCRIPTION="Analysis of application to detect known insecure files" EXECUTIONTIME="00h:00m:00s.72ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="62" NAME="Private code signing" DESCRIPTION="App should not package private code signing key files." EXECUTIONTIME="00h:00m:00s.73ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="19" TITLE="App manifest resources tests" RATIONALE="The App Package Manifest should have valid resources defined in the resources.pri file, as per the App Packaging Specification and App Manifest Schema.">
+      <TEST INDEX="45" NAME="App resources" DESCRIPTION="The package should have valid resources defined in the resources.pri file." EXECUTIONTIME="00h:00m:00s.72ms" OPTIONAL="TRUE">
+        <MESSAGES>
+          <MESSAGE TEXT="Image reference &quot;StoreLogo.png&quot;: The image &quot;StoreLogo.png&quot; failed the size restrictions of 50 X 50." />
+          <MESSAGE TEXT="Image reference &quot;SevenZipextLogo.png&quot;: The image &quot;SevenZipextLogo.png&quot; failed the size restrictions of 44 X 44." />
+          <MESSAGE TEXT="Image reference &quot;Square150x150Logo.png&quot;: The image &quot;Square150x150Logo.png&quot; failed the size restrictions of 150 X 150." />
+        </MESSAGES>
+        <RESULT><![CDATA[FAIL]]></RESULT>
+      </TEST>
+      <TEST INDEX="61" NAME="Branding" DESCRIPTION="App should not use the default images packed by windows SDK samples or Visual Studio." EXECUTIONTIME="00h:00m:00s.92ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="20" TITLE="Debug configuration test" RATIONALE="The App should not install any debug binaries.">
+      <TEST INDEX="46" NAME="Debug configuration" DESCRIPTION="The App should not install any debug binaries." EXECUTIONTIME="00h:00m:00s.75ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="23" TITLE="App Capabilities test" RATIONALE="Packages declaring special-use capabilities will have to provide justifications during the onboarding process.">
+      <TEST INDEX="52" NAME="Special use capabilities" DESCRIPTION="Packages declaring special-use capabilities will have to provide justifications during the onboarding process." EXECUTIONTIME="00h:00m:00s.75ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="24" TITLE="Windows Runtime metadata validation" RATIONALE="Metadata needs to be conformant and consistent across all generation sources.">
+      <TEST INDEX="56" NAME="ExclusiveTo attribute" DESCRIPTION="A class must not implement an interface that is marked ExclusiveTo another class." EXECUTIONTIME="00h:00m:06s.30ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="57" NAME="Type location" DESCRIPTION="Types must be defined in the metadata file with the longest matching namespace." EXECUTIONTIME="00h:00m:00s.72ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="55" NAME="Type name case-sensitivity" DESCRIPTION="Namespace and type names must not vary only by casing." EXECUTIONTIME="00h:00m:00s.70ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="54" NAME="Type name correctness" DESCRIPTION="Only system types can be in the Windows namespace and no types can be in the global namespace." EXECUTIONTIME="00h:00m:00s.70ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="58" NAME="General metadata correctness" DESCRIPTION="Metadata files must meet various requirements in order to be valid and correct." EXECUTIONTIME="00h:00m:06s.26ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="53" NAME="Properties" DESCRIPTION="Write-only and indexer properties may not be used. Corresponding getter and setter methods must match in type." EXECUTIONTIME="00h:00m:00s.68ms" OPTIONAL="FALSE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="25" TITLE="Package sanity test" RATIONALE="Validation of the app package contents to ensure correctness.">
+      <TEST INDEX="89" NAME="Archive files usage" DESCRIPTION="Packages should not contain PE files inside archive files." EXECUTIONTIME="00h:00m:00s.71ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+      <TEST INDEX="88" NAME="Blocked executables" DESCRIPTION="Detects if there are references to process launch APIs and blocked executables" EXECUTIONTIME="00h:00m:00s.81ms" OPTIONAL="TRUE">
+        <MESSAGES>
+          <MESSAGE TEXT="File 7Zip.ShellExtension.dll contains a reference to a &quot;Launch Process&quot; related API shell32.dll!ShellExecuteExW" />
+          <MESSAGE TEXT="File 7Zip.ShellExtensionHost.exe contains a reference to a &quot;Launch Process&quot; related API shell32.dll!ShellExecuteExW" />
+        </MESSAGES>
+        <RESULT><![CDATA[FAIL]]></RESULT>
+      </TEST>
+      <TEST INDEX="63" NAME="Platform appropriate files" DESCRIPTION="App should not install files that do not match the target processor architecture." EXECUTIONTIME="00h:00m:00s.72ms" OPTIONAL="TRUE">
+        <MESSAGES />
+        <RESULT><![CDATA[PASS]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+    <REQUIREMENT NUMBER="26" TITLE="High-DPI support" RATIONALE="The application needs to set DPI-aware to make the UI look consistently good across a wide variety of high-DPI display settings.">
+      <TEST INDEX="92" NAME="DPIAwarenessValidation" DESCRIPTION="Applications should set DPI-aware to make its UI look consistently good across a wide variety of high-DPI display settings." EXECUTIONTIME="00h:00m:00s.76ms" OPTIONAL="FALSE">
+        <MESSAGES>
+          <MESSAGE TEXT="File 7Zip.ShellExtensionHost.exe neither has PerMonitorV2 manifested in the manifest nor calls into DPI Awareness APIs for ex: user32!SetProcessDpiAwarenessContext or user32!SetThreadDpiAwarenessContext." />
+          <MESSAGE TEXT="The app org.7zip.shell_1.0.0.2_x64__sbst9frv0qa1t is not DPI Aware." />
+        </MESSAGES>
+        <RESULT><![CDATA[WARNING]]></RESULT>
+      </TEST>
+    </REQUIREMENT>
+  </REQUIREMENTS>
+  <APPLICATIONS>
+    <Installed_Programs>
+      <Program Name="org.7zip.shell" Type="Application" Source="AppxPackage" Publisher="CN=7ZipDev" Version="1.0.0.2" Language="1033" InstallDate="" RootDirPath="C:\WINDOWS\temp\appcert_4B24\org.7zip.shell_1.0.0.2_x64__sbst9frv0qa1t" Id="000051d17759b2b7137de4512d2375b922b500000904" HiddenArp="false">
+        <Indicators>
+          <WindowsStoreAppManifestIndicators>
+            <PackageManifest PackageFullName="org.7zip.shell_1.0.0.2_x64__sbst9frv0qa1t">
+              <Package>
+                <Identity Name="org.7zip.shell" Publisher="CN=7ZipDev" ProcessorArchitecture="x64" Version="1.0.0.2"></Identity>
+                <Properties>
+                  <DisplayName>7-Zip</DisplayName>
+                  <PublisherDisplayName>7-Zip</PublisherDisplayName>
+                  <Logo>StoreLogo.png</Logo>
+                  <RegistryWriteVirtualization>disabled</RegistryWriteVirtualization>
+                  <FileSystemWriteVirtualization>disabled</FileSystemWriteVirtualization>
+                  <AllowExternalContent>true</AllowExternalContent>
+                </Properties>
+                <Dependencies>
+                  <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0"></TargetDeviceFamily>
+                </Dependencies>
+                <Resources>
+                  <Resource Language="EN-US"></Resource>
+                </Resources>
+                <Capabilities>
+                  <Capability Name="runFullTrust"></Capability>
+                  <Capability Name="unvirtualizedResources"></Capability>
+                </Capabilities>
+                <Applications>
+                  <Application Id="SevenZip.ShellExtension" Executable="7Zip.ShellExtensionHost.exe" TrustLevel="mediumIL" EntryPoint="Windows.FullTrustApplication">
+                    <VisualElements AppListEntry="none" DisplayName="7-Zip" Description="7Zip.ShellExtensionHost.exe" BackgroundColor="transparent" Square150x150Logo="Square150x150Logo.png" Square44x44Logo="SevenZipextLogo.png" ForegroundText="light"></VisualElements>
+                    <Extensions>
+                      <Extension Category="windows.comServer">
+                        <ComServer>
+                          <SurrogateServer DisplayName="7-Zip">
+                            <Class Id="b41db860-64e4-11d2-9906-e49fadc173ca" Path="RarExt.dll" ThreadingModel="STA"></Class>
+                          </SurrogateServer>
+                        </ComServer>
+                      </Extension>
+                      <Extension Category="windows.fileExplorerContextMenus">
+                        <FileExplorerContextMenus>
+                          <ItemType Type="*">
+                            <Verb Id="7ZipVerbDir" Clsid="b41db860-64e4-11d2-9906-e49fadc173ca"></Verb>
+                          </ItemType>
+                          <ItemType Type="Directory">
+                            <Verb Id="7ZipVerbDir" Clsid="b41db860-64e4-11d2-9906-e49fadc173ca"></Verb>
+                          </ItemType>
+                        </FileExplorerContextMenus>
+                      </Extension>
+                    </Extensions>
+                  </Application>
+                </Applications>
+              </Package>
+            </PackageManifest>
+          </WindowsStoreAppManifestIndicators>
+        </Indicators>
+        <StaticProperties>
+          <Files Id="">
+            <File Id="00008ecae698e88fe3cfb5f5a0948e27382ed42d807a" Name="7Zip.ShellExtensionHost.exe" ProductName="" CompanyName="" ProductVersion="" VerLanguage="0" SwitchBackContext="0" FileVersion="" OriginalFileName="" InternalName="" Size="29696" SizeOfImage="49152" PeHeaderHash="01015ec40fa91313757f727c330595aee7033a3256f0" PeChecksum="0" CrcChecksum="1244187776" BinProductVersion="" BinFileVersion="" FileDescription="" LegalCopyright="" LinkDate="08/30/2025 22:18:12" BinaryType="pe64_amd64" LowerCaseLongPath="c:\windows\temp\appcert_4b24\org.7zip.shell_1.0.0.2_x64__sbst9frv0qa1t\7zip.shellextensionhost.exe" SigPublisherName="" PeSubsystem="2" PeCharacteristics="34" Sha256="ff81baab80f1bf11ce502e3679ae240732750e30caa103a1f654654b6a6e52fa" />
+            <File Id="000044f6d6243ec6f8ece05e229012c6c6f01517807c" Name="7Zip.ShellExtension.dll" ProductName="" CompanyName="" ProductVersion="" VerLanguage="0" SwitchBackContext="0" FileVersion="" OriginalFileName="" InternalName="" Size="62976" SizeOfImage="81920" PeHeaderHash="010114b4ed7ec7814e20767263ec754ce8e0df6465c9" PeChecksum="0" CrcChecksum="3844211035" BinProductVersion="" BinFileVersion="" FileDescription="" LegalCopyright="" LinkDate="08/30/2025 21:26:01" BinaryType="pe64_amd64" LowerCaseLongPath="c:\windows\temp\appcert_4b24\org.7zip.shell_1.0.0.2_x64__sbst9frv0qa1t\7zip.shellextension.dll" SigPublisherName="" PeSubsystem="2" PeCharacteristics="8226" Sha256="6a3559548743ff65e9df0de8c70c04bbab5b099ccbc85ba54147d1accce1eda0" />
+          </Files>
+        </StaticProperties>
+      </Program>
+    </Installed_Programs>
+  </APPLICATIONS>
+  <DEPENDENCY_INFORMATION>
+    <AitStaticAnalysis ProgramId="0000da39a3ee5e6b4b0d3255bfef95601890afd80709" AnalysisVersion="1.80" DictionaryVersion="3.7" Type="Max" Id="C:\WINDOWS\temp\appcert_4B24\org.7zip.shell_1.0.0.2_x64__sbst9frv0qa1t">
+      <AitFile ErrorCode="0" Name="7Zip.ShellExtension.dll" Id="000044f6d6243ec6f8ece05e229012c6c6f01517807c">
+        <AitCategory Id="Com">
+          <AitFeature Name="{00000000-0000-0000-0000-000000000001}" />
+          <AitFeature Name="{00000000-0000-0000-c000-000000000046}" />
+          <AitFeature Name="{00000001-0000-0000-c000-000000000046}" />
+          <AitFeature Name="{a08ce4d0-fa25-44ab-b57c-c7b1c323e0b9}" />
+          <AitFeature Name="{a88826f8-186f-4987-aade-ea0cef8fbfe8}" />
+        </AitCategory>
+        <AitCategory Id="ApiStatic">
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_cexit" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_configure_narrow_argv" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_execute_onexit_table" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initialize_narrow_environment" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initialize_onexit_table" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initterm" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initterm_e" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_invoke_watson" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_seh_filter_dll" />
+          <AitFeature Name="api-ms-win-crt-string-l1-1-0.dll!wcslen" />
+          <AitFeature Name="api-ms-win-crt-heap-l1-1-0.dll!_callnewh" />
+          <AitFeature Name="api-ms-win-crt-heap-l1-1-0.dll!free" />
+          <AitFeature Name="api-ms-win-crt-heap-l1-1-0.dll!malloc" />
+          <AitFeature Name="vcruntime140.dll!_CxxThrowException" />
+          <AitFeature Name="vcruntime140.dll!__C_specific_handler" />
+          <AitFeature Name="vcruntime140.dll!__std_exception_copy" />
+          <AitFeature Name="vcruntime140.dll!__std_exception_destroy" />
+          <AitFeature Name="vcruntime140.dll!__std_type_info_destroy_list" />
+          <AitFeature Name="vcruntime140.dll!memcpy" />
+          <AitFeature Name="vcruntime140.dll!memmove" />
+          <AitFeature Name="vcruntime140.dll!memset" />
+          <AitFeature Name="msvcp140.dll!?_Xlength_error@std@@YAXPEBD@Z" />
+          <AitFeature Name="ole32.dll!CoTaskMemFree" />
+          <AitFeature Name="kernel32.dll!GetCurrentProcess" />
+          <AitFeature Name="kernel32.dll!GetCurrentProcessId" />
+          <AitFeature Name="kernel32.dll!GetCurrentThreadId" />
+          <AitFeature Name="kernel32.dll!GetSystemTimeAsFileTime" />
+          <AitFeature Name="kernel32.dll!InitializeSListHead" />
+          <AitFeature Name="kernel32.dll!IsDebuggerPresent" />
+          <AitFeature Name="kernel32.dll!IsProcessorFeaturePresent" />
+          <AitFeature Name="kernel32.dll!QueryPerformanceCounter" />
+          <AitFeature Name="kernel32.dll!RtlCaptureContext" />
+          <AitFeature Name="kernel32.dll!RtlLookupFunctionEntry" />
+          <AitFeature Name="kernel32.dll!RtlVirtualUnwind" />
+          <AitFeature Name="kernel32.dll!SetUnhandledExceptionFilter" />
+          <AitFeature Name="kernel32.dll!TerminateProcess" />
+          <AitFeature Name="kernel32.dll!UnhandledExceptionFilter" />
+          <AitFeature Name="shell32.dll!ShellExecuteExW" />
+          <AitFeature Name="shlwapi.dll!PathFindFileNameW" />
+          <AitFeature Name="shlwapi.dll!SHStrDupW" />
+        </AitCategory>
+        <AitCategory Id="ApiDynamic">
+          <AitFeature Name="ole32.dll!IsEqualGUID" />
+        </AitCategory>
+      </AitFile>
+      <AitFile ErrorCode="0" Name="7Zip.ShellExtensionHost.exe" Id="00008ecae698e88fe3cfb5f5a0948e27382ed42d807a">
+        <AitCategory Id="Com">
+          <AitFeature Name="{00000000-0000-0000-0000-000000000001}" />
+          <AitFeature Name="{00000000-0000-0000-c000-000000000046}" />
+          <AitFeature Name="{00000001-0000-0000-c000-000000000046}" />
+          <AitFeature Name="{a08ce4d0-fa25-44ab-b57c-c7b1c323e0b9}" />
+          <AitFeature Name="{a88826f8-186f-4987-aade-ea0cef8fbfe8}" />
+        </AitCategory>
+        <AitCategory Id="ApiStatic">
+          <AitFeature Name="api-ms-win-crt-locale-l1-1-0.dll!_configthreadlocale" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_c_exit" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_cexit" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_configure_wide_argv" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_crt_atexit" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_exit" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_get_wide_winmain_command_line" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initialize_onexit_table" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initialize_wide_environment" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initterm" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_initterm_e" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_invoke_watson" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_register_onexit_function" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_register_thread_local_exe_atexit_callback" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_seh_filter_exe" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!_set_app_type" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!exit" />
+          <AitFeature Name="api-ms-win-crt-runtime-l1-1-0.dll!terminate" />
+          <AitFeature Name="api-ms-win-crt-string-l1-1-0.dll!wcslen" />
+          <AitFeature Name="api-ms-win-crt-math-l1-1-0.dll!__setusermatherr" />
+          <AitFeature Name="api-ms-win-crt-filesystem-l1-1-0.dll!_wsplitpath_s" />
+          <AitFeature Name="api-ms-win-crt-stdio-l1-1-0.dll!__p__commode" />
+          <AitFeature Name="api-ms-win-crt-stdio-l1-1-0.dll!_set_fmode" />
+          <AitFeature Name="api-ms-win-crt-heap-l1-1-0.dll!_callnewh" />
+          <AitFeature Name="api-ms-win-crt-heap-l1-1-0.dll!_set_new_mode" />
+          <AitFeature Name="api-ms-win-crt-heap-l1-1-0.dll!free" />
+          <AitFeature Name="api-ms-win-crt-heap-l1-1-0.dll!malloc" />
+          <AitFeature Name="vcruntime140.dll!_CxxThrowException" />
+          <AitFeature Name="vcruntime140.dll!__C_specific_handler" />
+          <AitFeature Name="vcruntime140.dll!__current_exception" />
+          <AitFeature Name="vcruntime140.dll!__current_exception_context" />
+          <AitFeature Name="vcruntime140.dll!__std_exception_copy" />
+          <AitFeature Name="vcruntime140.dll!__std_exception_destroy" />
+          <AitFeature Name="vcruntime140.dll!__std_terminate" />
+          <AitFeature Name="vcruntime140.dll!memcpy" />
+          <AitFeature Name="vcruntime140.dll!memmove" />
+          <AitFeature Name="vcruntime140.dll!memset" />
+          <AitFeature Name="msvcp140.dll!?_Xlength_error@std@@YAXPEBD@Z" />
+          <AitFeature Name="ole32.dll!CoInitializeEx" />
+          <AitFeature Name="ole32.dll!CoRegisterClassObject" />
+          <AitFeature Name="ole32.dll!CoRevokeClassObject" />
+          <AitFeature Name="ole32.dll!CoTaskMemFree" />
+          <AitFeature Name="ole32.dll!CoUninitialize" />
+          <AitFeature Name="kernel32.dll!GetCurrentProcess" />
+          <AitFeature Name="kernel32.dll!GetCurrentProcessId" />
+          <AitFeature Name="kernel32.dll!GetCurrentThreadId" />
+          <AitFeature Name="kernel32.dll!GetModuleHandleW" />
+          <AitFeature Name="kernel32.dll!GetStartupInfoW" />
+          <AitFeature Name="kernel32.dll!GetSystemTimeAsFileTime" />
+          <AitFeature Name="kernel32.dll!InitializeSListHead" />
+          <AitFeature Name="kernel32.dll!IsDebuggerPresent" />
+          <AitFeature Name="kernel32.dll!IsProcessorFeaturePresent" />
+          <AitFeature Name="kernel32.dll!QueryPerformanceCounter" />
+          <AitFeature Name="kernel32.dll!RtlCaptureContext" />
+          <AitFeature Name="kernel32.dll!RtlLookupFunctionEntry" />
+          <AitFeature Name="kernel32.dll!RtlVirtualUnwind" />
+          <AitFeature Name="kernel32.dll!SetUnhandledExceptionFilter" />
+          <AitFeature Name="kernel32.dll!TerminateProcess" />
+          <AitFeature Name="kernel32.dll!UnhandledExceptionFilter" />
+          <AitFeature Name="shell32.dll!ShellExecuteExW" />
+          <AitFeature Name="user32.dll!DispatchMessageW" />
+          <AitFeature Name="user32.dll!GetMessageW" />
+          <AitFeature Name="user32.dll!PostQuitMessage" />
+          <AitFeature Name="user32.dll!TranslateMessage" />
+          <AitFeature Name="shlwapi.dll!SHStrDupW" />
+        </AitCategory>
+      </AitFile>
+    </AitStaticAnalysis>
+  </DEPENDENCY_INFORMATION>
+</REPORT>

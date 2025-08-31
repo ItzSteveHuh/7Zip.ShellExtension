@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\comepso\Documents\GitHub\7zip-Dark7zip\CPP\7zip\UI\7Zip.ShellExtensionHost\build\CMakeFiles\c4475c6212ee9fe4eb3db8c8d7523f3d\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F7FA1782-FFEF-3354-9A2A-9F83424B8468}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

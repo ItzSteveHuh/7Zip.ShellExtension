@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  xmlns:desktop5="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5"
+  xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+  xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+  IgnorableNamespaces="uap uap2 uap3 rescap desktop desktop4 desktop5 uap10 com">
+  <Identity Name="SevenZip.ShellExtension" Publisher="CN=7ZipDev, O=7ZipDev, L=Kyle, S=Texas, C=US" ProcessorArchitecture="x64" Version="1.0.0.2" />
+
+  <Properties>
+    <DisplayName>7-Zip Shell Extension</DisplayName>
+    <PublisherDisplayName>7-Zip</PublisherDisplayName>
+    <Logo>StoreLogo.png</Logo>
+    <desktop6:RegistryWriteVirtualization>disabled</desktop6:RegistryWriteVirtualization>
+    <desktop6:FileSystemWriteVirtualization>disabled</desktop6:FileSystemWriteVirtualization>
+    <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop"
+                        MinVersion="10.0.19041.0"
+                        MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="EN-US" />
+  </Resources>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <rescap:Capability Name="unvirtualizedResources"/>
+  </Capabilities>
+  <Applications>
+    <Application Id="SevenZip.ShellExtension" Executable="7Zip.ShellExtensionHost.exe" uap10:TrustLevel="mediumIL" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements AppListEntry="none" DisplayName="7-Zip" Description="7Zip.ShellExtensionHost.exe" BackgroundColor="transparent" Square150x150Logo="Square150x150Logo.png" Square44x44Logo="SevenZipextLogo.png">
+      </uap:VisualElements>
+      <Extensions>
+        <com:Extension Category="windows.comServer">
+          <com:ComServer>
+            <com:SurrogateServer DisplayName="7-Zip">
+              <com:Class Id="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac" Path="7Zip.ShellExtension.dll" ThreadingModel="STA" />
+            </com:SurrogateServer>
+          </com:ComServer>
+        </com:Extension>
+        <desktop4:Extension Category="windows.fileExplorerContextMenus">
+          <desktop4:FileExplorerContextMenus>
+            <desktop5:ItemType Type="*">
+              <desktop5:Verb Id="7ZipVerbDir" Clsid="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac" />
+            </desktop5:ItemType>
+            <desktop5:ItemType Type="Directory">
+              <desktop5:Verb Id="7ZipVerbDir" Clsid="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac" />
+            </desktop5:ItemType>
+            <!-- <desktop5:ItemType Type="Drive">
+              <desktop5:Verb Id="7ZipVerbDir" Clsid="7c9f3aa6-4d07-4e1d-8b86-0f5a4e4f44ac" />
+            </desktop5:ItemType>             -->
+          </desktop4:FileExplorerContextMenus>
+        </desktop4:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+</Package>

@@ -1,0 +1,4 @@
+LIBRARY "7Zip.ShellExtension"
+EXPORTS
+    DllGetClassObject   PRIVATE
+    DllCanUnloadNow     PRIVATE

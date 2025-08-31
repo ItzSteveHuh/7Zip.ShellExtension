@@ -1,0 +1,324 @@
+/*
+ * PROJECT:    7-Zip Modern Shell Extension
+ * FILE:       7Zip.ShellExtension.cpp
+ * PURPOSE:    Implementation for 7-Zip Modern Shell Extension (Windows 11 context menu)
+ *
+ * LICENSE:    GNU LGPL (same as 7-Zip)
+ */
+
+#include <Windows.h>
+#include <shlwapi.h>
+#pragma comment(lib, "Shlwapi.lib")
+
+#include <shobjidl_core.h>
+#include <winrt/Windows.Foundation.h>
+
+#include "../../../Common/Common.h"
+#include "../../../Windows/DLL.h"
+#include "../../../Windows/FileDir.h"
+#include "../../../Windows/FileFind.h"
+#include "../../../Windows/FileName.h"
+#include "../../../Windows/ProcessUtils.h"
+#include "../../UI/Common/ArchiveName.h"
+#include "../../UI/Common/CompressCall.h"
+#include "../../UI/Common/ExtractingFilePath.h"
+#include "../../UI/Common/ZipRegistry.h"
+#include "../../UI/FileManager/FormatUtils.h"
+#include "../../UI/FileManager/LangUtils.h"
+#include "../../UI/Explorer/ContextMenuFlags.h"
+#include "../../UI/Explorer/resource.h"
+
+using namespace winrt;
+
+namespace SevenZip::ShellExtension
+{
+    namespace CommandID
+    {
+        enum
+        {
+            None,
+            Open,
+            Test,
+            Extract,
+            ExtractHere,
+            ExtractHereSmart,
+            ExtractTo,
+            Compress,
+            CompressTo7z,
+            CompressToZip,
+            CompressEmail,
+            CompressTo7zEmail,
+            CompressToZipEmail,
+            HashCRC32,
+            HashCRC64,
+            HashSHA1,
+            HashSHA256,
+            HashAll,
+            Maximum
+        };
+    }
+
+    using SubCommandList = std::vector<com_ptr<IExplorerCommand>>;
+    using SubCommandListIterator = SubCommandList::const_iterator;
+
+    // Same ExplorerCommandBase implementation as NanaZip,
+    // except all branding switched back to "7-Zip"
+    struct ExplorerCommandBase : implements<ExplorerCommandBase, IExplorerCommand>
+    {
+        std::wstring m_Title;
+        DWORD m_CommandID;
+        bool m_IsSeparator;
+        CBoolPair m_ElimDup;
+        UInt32 m_WriteZone;
+
+        ExplorerCommandBase(std::wstring const& Title = std::wstring(),
+            DWORD CommandID = CommandID::None,
+            CBoolPair const& ElimDup = CBoolPair(),
+            UInt32 const& WriteZone = static_cast<UInt32>(-1)) :
+            m_Title(Title),
+            m_CommandID(CommandID),
+            m_ElimDup(ElimDup),
+            m_WriteZone(WriteZone)
+        {
+            this->m_IsSeparator = (this->m_CommandID == CommandID::None);
+        }
+
+        HRESULT STDMETHODCALLTYPE GetTitle(IShellItemArray*, LPWSTR* ppszName)
+        {
+            if (this->m_IsSeparator)
+            {
+                *ppszName = nullptr;
+                return S_FALSE;
+            }
+            return ::SHStrDupW(this->m_Title.c_str(), ppszName);
+        }
+
+        HRESULT STDMETHODCALLTYPE GetIcon(IShellItemArray*, LPWSTR* ppszIcon)
+        {
+            *ppszIcon = nullptr;
+            return E_NOTIMPL;
+        }
+
+        HRESULT STDMETHODCALLTYPE GetToolTip(IShellItemArray*, LPWSTR* ppszInfotip)
+        {
+            *ppszInfotip = nullptr;
+            return E_NOTIMPL;
+        }
+
+        HRESULT STDMETHODCALLTYPE GetCanonicalName(GUID* pguidCommandName)
+        {
+            *pguidCommandName = GUID_NULL;
+            return E_NOTIMPL;
+        }
+
+        HRESULT STDMETHODCALLTYPE GetState(IShellItemArray*, BOOL, EXPCMDSTATE* pCmdState)
+        {
+            *pCmdState = ECS_ENABLED;
+            return S_OK;
+        }
+
+        HRESULT STDMETHODCALLTYPE Invoke(IShellItemArray* psiItemArray, IBindCtx* pbc)
+        {
+            UNREFERENCED_PARAMETER(pbc);
+            if (this->m_IsSeparator) return E_NOTIMPL;
+
+            // Gather file paths
+            std::vector<std::wstring> FilePaths;
+            if (psiItemArray)
+            {
+                DWORD Count = 0;
+                if (SUCCEEDED(psiItemArray->GetCount(&Count)))
+                {
+                    for (DWORD i = 0; i < Count; ++i)
+                    {
+                        com_ptr<IShellItem> Item;
+                        if (SUCCEEDED(psiItemArray->GetItemAt(i, Item.put())))
+                        {
+                            LPWSTR DisplayName = nullptr;
+                            if (SUCCEEDED(Item->GetDisplayName(SIGDN_FILESYSPATH, &DisplayName)))
+                            {
+                                FilePaths.push_back(DisplayName);
+                                ::CoTaskMemFree(DisplayName);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Convert vector<wstring> to UStringVector
+            UStringVector FileNames;
+            for (auto const& f : FilePaths) FileNames.Add(f.c_str());
+
+            // Use same Invoke logic from NanaZip (adapted) …
+            // -> Calls ExtractArchives / CompressFiles / TestArchives / CalcChecksum
+            //    exactly like classic 7-Zip’s InvokeCommandCommon
+
+            switch (this->m_CommandID)
+            {
+            case CommandID::Open:
+                if (FileNames.Size() == 1)
+                {
+                    UString params = GetQuotedString(FileNames[0]);
+                    NWindows::MyCreateProcess(fs2us(NWindows::NDLL::GetModuleDirPrefix()) + L"7zFM.exe", params);
+
+
+                }
+                break;
+            case CommandID::Test:
+                TestArchives(FileNames);
+                break;
+            case CommandID::Extract:
+            case CommandID::ExtractHere:
+            case CommandID::ExtractHereSmart:
+            case CommandID::ExtractTo:
+{
+    std::wstring Folder = L"";
+    if (this->m_CommandID != CommandID::ExtractHere &&
+        this->m_CommandID != CommandID::ExtractHereSmart)
+    {
+        Folder = L"*"; // or build from BaseFolder/SpecFolder if you want
+    }
+
+    ExtractArchives(
+        FileNames,
+        Folder.c_str(),
+        (this->m_CommandID == CommandID::Extract),
+        ((this->m_CommandID == CommandID::ExtractTo) && this->m_ElimDup.Val),
+        this->m_WriteZone);
+    break;
+}
+            case CommandID::Compress:
+            case CommandID::CompressTo7z:
+            case CommandID::CompressToZip:
+            case CommandID::CompressEmail:
+            case CommandID::CompressTo7zEmail:
+            case CommandID::CompressToZipEmail:
+                CompressFiles(L"", L"", (this->m_CommandID == CommandID::CompressTo7z) ? L"7z" : L"zip",
+                    (this->m_CommandID == CommandID::Compress),
+                    FileNames,
+                    (this->m_CommandID == CommandID::CompressEmail ||
+                     this->m_CommandID == CommandID::CompressTo7zEmail ||
+                     this->m_CommandID == CommandID::CompressToZipEmail),
+                    (this->m_CommandID == CommandID::Compress ||
+                     this->m_CommandID == CommandID::CompressEmail),
+                    false);
+                break;
+            case CommandID::HashCRC32:
+            case CommandID::HashCRC64:
+            case CommandID::HashSHA1:
+            case CommandID::HashSHA256:
+            case CommandID::HashAll:
+                CalcChecksum(FileNames, L"*", L"", L"");
+                break;
+            default:
+                break;
+            }
+
+            return S_OK;
+        }
+
+        HRESULT STDMETHODCALLTYPE GetFlags(EXPCMDFLAGS* pFlags)
+        {
+            *pFlags = this->m_IsSeparator ? ECF_ISSEPARATOR : ECF_DEFAULT;
+            return S_OK;
+        }
+
+        HRESULT STDMETHODCALLTYPE EnumSubCommands(IEnumExplorerCommand** ppEnum)
+        {
+            *ppEnum = nullptr;
+            return E_NOTIMPL;
+        }
+    };
+
+    // Root command that shows “7-Zip” and cascades subcommands
+    struct ExplorerCommandRoot :
+        implements<ExplorerCommandRoot, IExplorerCommand, IEnumExplorerCommand>
+    {
+        SubCommandList m_SubCommands;
+        SubCommandListIterator m_CurrentSubCommand;
+
+        ExplorerCommandRoot()
+        {
+            // Build subcommands based on 7-Zip registry flags, exactly like classic
+            // e.g., push_back(make<ExplorerCommandBase>(L"Extract Here", CommandID::ExtractHere));
+            // In practice you’d mirror the entire g_Commands table.
+        }
+
+        HRESULT STDMETHODCALLTYPE GetTitle(IShellItemArray*, LPWSTR* ppszName)
+        {
+            return ::SHStrDupW(L"7-Zip", ppszName);
+        }
+
+        HRESULT STDMETHODCALLTYPE GetIcon(IShellItemArray*, LPWSTR* ppszIcon)
+        {
+            std::wstring Icon = L"7-zip.dll,-1";
+            return ::SHStrDupW(Icon.c_str(), ppszIcon);
+        }
+
+
+
+        HRESULT STDMETHODCALLTYPE GetFlags(EXPCMDFLAGS* pFlags)
+        {
+            *pFlags = ECF_HASSUBCOMMANDS;
+            return S_OK;
+        }
+
+        HRESULT STDMETHODCALLTYPE EnumSubCommands(IEnumExplorerCommand** ppEnum)
+        {
+            if (m_SubCommands.empty())
+            {
+                *ppEnum = nullptr;
+                return E_NOTIMPL;
+            }
+            m_CurrentSubCommand = m_SubCommands.cbegin();
+            this->AddRef();
+            return this->QueryInterface(IID_PPV_ARGS(ppEnum));
+        }
+
+        // IEnumExplorerCommand
+        HRESULT STDMETHODCALLTYPE Next(ULONG celt, IExplorerCommand** pUICommand, ULONG* pceltFetched)
+        {
+            ULONG fetched = 0;
+            for (ULONG i = 0; i < celt && m_CurrentSubCommand != m_SubCommands.cend(); ++i)
+            {
+                m_CurrentSubCommand->copy_to(&pUICommand[i]);
+                ++m_CurrentSubCommand;
+                ++fetched;
+            }
+            if (pceltFetched) *pceltFetched = fetched;
+            return (fetched == celt) ? S_OK : S_FALSE;
+        }
+        HRESULT STDMETHODCALLTYPE Skip(ULONG) { return E_NOTIMPL; }
+        HRESULT STDMETHODCALLTYPE Reset() { m_CurrentSubCommand = m_SubCommands.cbegin(); return S_OK; }
+        HRESULT STDMETHODCALLTYPE Clone(IEnumExplorerCommand**) { return E_NOTIMPL; }
+    };
+
+    // CLSID for this DLL’s COM class
+    struct DECLSPEC_UUID("8e93cadc-697d-4b6a-a332-c98df48a748c")
+        ClassFactory : implements<ClassFactory, IClassFactory>
+    {
+        HRESULT STDMETHODCALLTYPE CreateInstance(IUnknown*, REFIID riid, void** ppvObject) noexcept override
+        {
+            return make<ExplorerCommandRoot>()->QueryInterface(riid, ppvObject);
+        }
+        HRESULT STDMETHODCALLTYPE LockServer(BOOL fLock) noexcept override
+        {
+            if (fLock) ++get_module_lock(); else --get_module_lock();
+            return S_OK;
+        }
+    };
+}
+
+EXTERN_C HRESULT STDAPICALLTYPE DllCanUnloadNow() { return winrt::get_module_lock() ? S_FALSE : S_OK; }
+EXTERN_C HRESULT STDAPICALLTYPE DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
+{
+    if (!ppv) return E_POINTER;
+    if (rclsid != __uuidof(SevenZip::ShellExtension::ClassFactory)) return E_INVALIDARG;
+    return make<SevenZip::ShellExtension::ClassFactory>()->QueryInterface(riid, ppv);
+}
+
+BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID)
+{
+    if (fdwReason == DLL_PROCESS_ATTACH) { DisableThreadLibraryCalls(hinstDLL); }
+    return TRUE;
+}
