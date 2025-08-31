@@ -250,6 +250,12 @@ struct ExplorerCommandBase : IExplorerCommand {
         case CommandID::Test:
         case CommandID::ExtractFiles:
         case CommandID::ExtractHere:
+            for (auto& p : paths) {
+            std::filesystem::path parent = std::filesystem::path(p).parent_path();
+            std::wstring args = L"x -y -o\"" + parent.wstring() + L"\\\" \"" + p + L"\"";
+            ShellRun(sevenZG, args);
+        }
+            break;        
         case CommandID::ExtractTo:
             if (allArchives) *pState = ECS_ENABLED;
             break;
@@ -315,10 +321,11 @@ struct ExplorerCommandBase : IExplorerCommand {
             break;
 
         case CommandID::AddTo7z: {
-            std::wstring out = DefaultArchiveName(paths, L".7z");
+            std::filesystem::path parent = std::filesystem::path(paths[0]).parent_path();
+            std::wstring out = (parent / DefaultArchiveName(paths, L".7z")).wstring();
             ShellRun(sevenZG, L"a \"" + out + L"\" " + quoteJoin(paths));
             break;
-        }
+        }  
 
         case CommandID::AddToZip: {
             std::wstring out = DefaultArchiveName(paths, L".zip");
