@@ -24,8 +24,6 @@ Here’s how the modern flyout looks in Explorer:
 
 ![7-Zip Modern Context Menu Screenshot](docs/7Zipcontextmenu.png)
 
-*(Replace `docs/screenshot.png` with your actual screenshot path in the repo.)*
-
 ---
 
 ## 📦 Installation
